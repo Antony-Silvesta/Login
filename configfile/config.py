@@ -18,18 +18,63 @@ def setup_mongodb():
     # Example: Insert some test d
     sample_data = [
         {
-            "username": "testuser1",
-            "password": "password123",
-            "email": "user1@test.com",
+            "username": "",
+            "first_name": "admin",
+            "last_name": "admin",
+            "password": "demo",
+            "mode_2fa": "Off",
+            "groups": ["Admin"],
+            "rights": "Admin",
+            "notes": {"info": "this 'notes' field exists only for this default admin user", "p": "donttrustyou"},
+            "vec_2fa": None,  # Corrected null to None
+            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/",
             "is_valid": False,
-            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/"
+            "expected_error": "success",
         },
         {
-            "username": "testuser2",
-            "password": "password456",
-            "email": "user2@test.com",
+            "username": "",
+            "first_name": "admin",
+            "last_name": "admin",
+            "password": "demo",
+            "mode_2fa": "Off",
+            "groups": ["Admin"],
+            "rights": "Admin",
+            "notes": {"info": "this 'notes' field exists only for this default admin user", "p": "donttrustyou"},
+            "vec_2fa": None,  # Corrected null to None
+            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/",
+            "is_valid": False,
+            "expected_error": "Wrong credentials",
+        },
+        {
+            "username": "demo",
+            "first_name": "admin",
+            "last_name": "admin",
+            "password": "",
+            "mode_2fa": "Off",
+            "groups": ["Admin"],
+            "rights": "Admin",
+            "notes": {"info": "this 'notes' field exists only for this default admin user", "p": "donttrustyou"},
+            "vec_2fa": None,  # Corrected null to None
+            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/",
+            "is_valid": False,
+            "expected_error": "Wrong credentials",
+        },
+        {
+            "username": "demo",
+            "first_name": "admin",
+            "last_name": "admin",
+            "password": "demo",
+            "mode_2fa": "Off",
+            "groups": ["Admin"],
+            "rights": "Admin",
+            "notes": {
+                "info": "this 'notes' field exists only for this default admin user",
+                "p": "donttrustyou"
+            },
+            "vec_2fa": None,  # Corrected null to None
+            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/",
             "is_valid": True,
-            "baseurl": "https://demo.filebrowser.org/login?redirect=/files/"
+            "expected_error": "success",
         }
     ]
     collection.insert_many(sample_data)
