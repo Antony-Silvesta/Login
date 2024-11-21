@@ -13,8 +13,8 @@ def setup_mongodb():
         print(f"Failed to connect to MongoDB: {e}")
         exit(1)
     # Set up test data (example)
-    db = client.get_database('test_db')  # Use a database for testing
-    collection = db.get_collection('test_collection')
+    db = client.get_database('sampleupload')  # Use a database for testing
+    collection = db.get_collection('users')
     # Example: Insert some test d
     sample_data = [
         {
